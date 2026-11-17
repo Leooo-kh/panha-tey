@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Panha &amp; Tey · សិរីសួស្ដីអាពាហ៍ពិពាហ៍</title>
+<meta name="description" content="សូមគោរពអញ្ជើញចូលរួមពិធីសិរីមង្គលអាពាហ៍ពិពាហ៍ សុខា បញ្ញា និង អ៊ាង ពេជ្រវត្តី · ថ្ងៃសៅរ៍ ទី១៩ ខែធ្នូ ឆ្នាំ២០២៦ · The Grand Terrace">
+<meta name="theme-color" content="#2b1b13">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Panha &amp; Tey · Wedding Invitation">
+<meta property="og:description" content="សូមគោរពអញ្ជើញ · ថ្ងៃសៅរ៍ ទី១៩ ខែធ្នូ ឆ្នាំ២០២៦ · The Grand Terrace, Phnom Penh">
+<meta property="og:image" content="a/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="a/icon.png">
+<link rel="apple-touch-icon" href="a/icon.png">
+<link rel="preload" href="a/battambang.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="a/bokor.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="a/flap-l.webp" as="image">
+<link rel="preload" href="a/flap-r.webp" as="image">
+<link rel="preload" href="a/env-back.jpg" as="image">
+<style>
+@font-face{font-family:'Battambang';src:url(a/battambang.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Battambang';src:url(a/battambang-bold.woff2) format('woff2');font-weight:700;font-display:swap}
+@font-face{font-family:'Bokor';src:url(a/bokor.woff2) format('woff2');font-display:swap}
+@font-face{font-family:'Esteban';src:url(a/esteban.woff2) format('woff2');font-display:swap}
+@font-face{font-family:'Pinyon Script';src:url(a/pinyon.woff2) format('woff2');font-display:swap}
+:root{--w:390px;--z:1}
+*{-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0}
+button,input,textarea,output{font-family:inherit}
+html{scroll-behavior:smooth;background:#2b1b13}
+body{background:#2b1b13;color:#492618;font-family:Battambang,serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+html.locked,body.locked{overflow:hidden;height:100%}
+.tx-cream{background:#f8f4ea url(a/paper.jpg) repeat;background-size:256px 256px}
+a{color:#492618}
+.app{position:relative;width:var(--w);margin:0 auto}
+
+/* ---------- envelope ---------- */
+#env{position:fixed;inset:0;z-index:50;display:flex;justify-content:center;background:transparent;cursor:pointer;outline:none}
+#env .box{position:relative;width:var(--w);height:100%;overflow:hidden;perspective:1300px}
+#env .stage{position:absolute;left:50%;top:50%;width:390px;height:844px;transform-origin:50% 50%;transform-style:preserve-3d}
+#env .stage img{position:absolute;display:block;user-select:none;-webkit-user-drag:none}
+#env .back,#env .flap{left:0;top:0;width:390px;height:844px}
+#env .back{transition:opacity .9s ease .95s}
+#env .flap{backface-visibility:hidden;transition:transform 1.7s cubic-bezier(.55,.05,.25,1) .35s,opacity .5s ease 1.55s}
+#env .flap-l{transform-origin:0 50%;filter:drop-shadow(8px 6px 10px rgba(0,0,0,.35))}
+#env .flap-r{transform-origin:100% 50%;filter:drop-shadow(-8px 6px 10px rgba(0,0,0,.3))}
+#env .seal{left:121px;top:355px;width:150px;height:150px;transition:transform .75s cubic-bezier(.3,.6,.3,1),opacity .6s ease .1s;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35))}
+#env .seal.pulse{animation:pulse 2.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+#env .hint{position:absolute;left:0;right:0;bottom:calc(46px + env(safe-area-inset-bottom));text-align:center;color:#e2c4a5;text-shadow:0 1px 3px rgba(0,0,0,.6);transition:opacity .4s}
+#env .hint p{margin:0}
+#env.opening{cursor:default;pointer-events:none}
+#env.opening .seal{animation:none;transform:translateY(-34px) scale(1.25);opacity:0}
+#env.opening .flap-l{transform:rotateY(-104deg);opacity:0}
+#env.opening .flap-r{transform:rotateY(104deg);opacity:0}
+#env.opening .back{opacity:0}
+#env.opening .hint{opacity:0}
+#env.done{display:none}
+#env:focus-visible .seal{outline:2px solid #e2c4a5;outline-offset:6px;border-radius:50%}
+
+/* ---------- hero (photo card) ---------- */
+#hero{position:relative;height:100vh;height:100svh;min-height:540px;overflow:hidden;background:#3a2519}
+#hero video,#hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+#hero .poster{background:url(a/photo-bg.jpg) center/cover}
+#hero .g1{position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,18,12,.55) 0,rgba(30,18,12,.2) 26%,rgba(30,18,12,0) 45%)}
+#hero .g2{position:absolute;left:0;right:0;bottom:0;height:22%;background:linear-gradient(0deg,rgba(30,18,12,.6) 0,rgba(30,18,12,.3) 55%,rgba(30,18,12,0) 100%)}
+#hero .stage{position:absolute;left:50%;top:50%;width:390px;height:844px;transform-origin:50% 50%}
+.music{padding:0;border:0;background:none;cursor:pointer;border-radius:50%}
+.music .ic-pause{display:none}
+.music.playing .ic-pause{display:inline}
+.music.playing .ic-play{display:none}
+.music .ringtext{transform-box:view-box;transform-origin:0 0}
+.music.playing .ringtext{animation:spin 14s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.music:focus-visible{outline:2px solid #493224;outline-offset:3px}
+#scrollHint{position:absolute;left:50%;bottom:calc(0px + env(safe-area-inset-bottom));width:22px;height:20px;margin-left:-11px;opacity:0;transition:opacity 1s 2.2s;border:0;background:none;padding:0;cursor:pointer}
+body.open #scrollHint{opacity:.85;animation:bob 2.4s ease-in-out 3s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(6px)}}
+html.js body:not(.open) .heroCard,html.js body:not(.open) .heroFade{opacity:0;transform:translateY(46px) scale(.96)}
+.heroCard,.heroFade{transition:opacity 1.1s ease .9s,transform 1.4s cubic-bezier(.2,.7,.2,1) .9s}
+
+/* ---------- floral background for sections ---------- */
+#floral{position:absolute;inset:0;z-index:0;pointer-events:none}
+#floral .pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;background:#3b2619 url(a/floral-poster.jpg) center/cover}
+#floral video{width:100%;height:100%;object-fit:cover;display:block}
+.rm #floral .pin{background-image:url(a/floral-bg.jpg)}
+.rm #floral video{display:none}
+.body{position:relative}
+.col{position:relative;z-index:1;width:390px;margin:0 auto;zoom:var(--z)}
+.sec{display:flex;justify-content:center}
+html.js .sec>*{opacity:0;transform:translateY(28px);transition:opacity 1s ease,transform 1.2s cubic-bezier(.2,.7,.2,1)}
+html.js .sec.in>*{opacity:1;transform:none}
+.ph{display:block;object-fit:cover;box-shadow:0 10px 22px rgba(73,50,36,.18)}
+footer{position:relative;z-index:1;text-align:center;color:#e2c4a5;padding:10px 0 calc(60px + env(safe-area-inset-bottom))}
+footer p{margin:0}
+
+/* ---------- schedule motion ---------- */
+html.js .timeline.armed svg{clip-path:inset(0 0 100% 0)}
+html.js .timeline.armed>div{opacity:0}
+.timeline svg{transition:clip-path 5s cubic-bezier(.45,.1,.55,.9)}
+.timeline>div{transition:opacity .7s ease}
+html.js .timeline.armed.go svg{clip-path:inset(0 0 0 0)}
+html.js .timeline.armed.go>div{opacity:1}
+
+/* ---------- RSVP form ---------- */
+.field-line{display:block;width:100%;box-sizing:border-box;padding:4px 2px 8px;border:0;border-bottom:1px solid rgba(73,38,24,.5);background:transparent;font:inherit;font-size:16px;line-height:1.6;color:#492618;border-radius:0}
+.field-box{display:block;width:100%;box-sizing:border-box;padding:10px 12px;border:1px solid rgba(73,38,24,.4);background:rgba(255,255,255,.25);font:inherit;font-size:16px;line-height:1.7;color:#492618;resize:vertical;border-radius:0}
+.field-line::placeholder,.field-box::placeholder{color:rgba(73,38,24,.45)}
+.field-line:focus,.field-box:focus{outline:none;border-color:#492618;box-shadow:0 1px 0 #492618}
+.choice{flex:1;min-height:56px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(73,38,24,.4);background:transparent;color:#492618;font:inherit;cursor:pointer;padding:6px}
+.choice .en{font-family:Esteban;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#4a3325}
+.choice[aria-pressed="true"]{background:#493224;border-color:#492618;color:#f8f4ea}
+.choice[aria-pressed="true"] .en{color:#e2c4a5}
+.step{width:44px;height:40px;border:0;background:none;font-family:Esteban;font-size:20px;color:#492618;cursor:pointer}
+.step:disabled{opacity:.3;cursor:default}
+#countRow[hidden]{display:none!important}
+.btn-dark:focus-visible,.choice:focus-visible,.step:focus-visible{outline:2px solid #e2c4a5;outline-offset:2px}
+#rSend[disabled]{opacity:.7;cursor:progress}
+.err{color:#801d2d}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation:none!important;transition-duration:.01s!important;transition-delay:0s!important}
+}
+</style>
+<script>document.documentElement.classList.add('js','locked')</script>
+</head>
+<body class="locked">
+<audio id="bgm" src="a/music.mp3" loop preload="auto"></audio>
+
+<div id="env" role="button" tabindex="0" aria-label="បើកសំបុត្រអញ្ជើញ · Open the invitation">
+  <div class="box">
+    <div class="stage" id="envStage">
+      <img class="back" src="a/env-back.jpg" alt="">
+      <img class="flap flap-r" src="a/flap-r.webp" alt="">
+      <img class="flap flap-l" src="a/flap-l.webp" alt="">
+      <img class="seal pulse" src="a/seal.webp" alt="">
+    </div>
+    <div class="hint" aria-hidden="true">
+      <p style="font-family:Battambang;font-size:14px;line-height:1.6">ចុចលើត្រាដើម្បីបើក</p>
+      <p style="margin-top:2px;font-family:Esteban;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase">Tap the seal to open</p>
+    </div>
+  </div>
+</div>
+
+<div class="app" id="app">
+  <section id="hero" aria-label="Panha &amp; Tey">
+    <div class="poster"></div>
+    <video id="fabricVid" muted loop playsinline preload="auto" poster="a/photo-bg.jpg" aria-hidden="true"><source src="a/fabric.mp4" type="video/mp4"></video>
+    <div class="g1"></div><div class="g2"></div>
+    <div class="stage" id="heroStage">
+<div style="position:absolute;left:0;right:0;top:64px;display:flex;flex-direction:column;align-items:center;color:#f8f4ea;text-align:center">
+<img src="a/mono-sand.webp" style="width:40px;height:auto">
+<p style="margin:10px 0 0;font-family:Bokor;font-size:18px;line-height:1.5;color:#e2c4a5">សិរីសួស្ដីអាពាហ៍ពិពាហ៍</p>
+<p style="margin:2px 0 0;font-family:Esteban;font-size:9.5px;letter-spacing:.32em;text-transform:uppercase">Wedding invitation</p></div>
+
+<div id="countdown" role="timer" aria-label="Countdown to the wedding" style="position:absolute;left:54px;top:762px;width:282px;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));text-align:center"><div style="display:flex;flex-direction:column;align-items:center;">
+<span id="cd-d" style="font-family:Bokor;font-size:23px;line-height:1.25;color:#e2c4a5">៣៥</span>
+<span style="font-family:Battambang;font-size:10.5px;line-height:1.5;color:#f8f4ea">ថ្ងៃ</span>
+<span style="font-family:Esteban;font-size:7.5px;line-height:1.5;letter-spacing:.24em;text-transform:uppercase;color:#e2c4a5">Days</span></div><div style="display:flex;flex-direction:column;align-items:center;border-left:1px solid rgba(226,196,165,.4);">
+<span id="cd-h" style="font-family:Bokor;font-size:23px;line-height:1.25;color:#e2c4a5">១៨</span>
+<span style="font-family:Battambang;font-size:10.5px;line-height:1.5;color:#f8f4ea">ម៉ោង</span>
+<span style="font-family:Esteban;font-size:7.5px;line-height:1.5;letter-spacing:.24em;text-transform:uppercase;color:#e2c4a5">Hours</span></div><div style="display:flex;flex-direction:column;align-items:center;border-left:1px solid rgba(226,196,165,.4);">
+<span id="cd-m" style="font-family:Bokor;font-size:23px;line-height:1.25;color:#e2c4a5">៣៣</span>
+<span style="font-family:Battambang;font-size:10.5px;line-height:1.5;color:#f8f4ea">នាទី</span>
+<span style="font-family:Esteban;font-size:7.5px;line-height:1.5;letter-spacing:.24em;text-transform:uppercase;color:#e2c4a5">Minutes</span></div><div style="display:flex;flex-direction:column;align-items:center;border-left:1px solid rgba(226,196,165,.4);">
+<span id="cd-s" style="font-family:Bokor;font-size:23px;line-height:1.25;color:#e2c4a5">៥១</span>
+<span style="font-family:Battambang;font-size:10.5px;line-height:1.5;color:#f8f4ea">វិនាទី</span>
+<span style="font-family:Esteban;font-size:7.5px;line-height:1.5;letter-spacing:.24em;text-transform:uppercase;color:#e2c4a5">Seconds</span></div></div><div class="tx-cream heroCard" style="position:absolute;left:70px;top:206px;width:250px;height:540px;box-shadow:0 26px 50px rgba(0,0,0,.5),0 2px 6px rgba(0,0,0,.3);color:#492618">
+<img src="a/mono-cocoa.webp" style="position:absolute;left:35px;top:150px;width:180px;opacity:.05">
+<div style="position:absolute;left:0;right:0;top:34px;font-family:'Pinyon Script';font-size:52px;line-height:.92;color:#4a3325">
+<div style="padding-left:34px">Panha</div><div style="text-align:right;padding-right:30px;margin-top:2px"><span style="font-size:38px">&amp;</span> Tey</div></div>
+<div style="position:absolute;left:31px;top:150px"><svg width="188" height="258" viewBox="-80.0 -110.0 160 220" style="display:block;overflow:visible">
+<defs><clipPath id="cA"><ellipse rx="64" ry="94"/></clipPath>
+<filter id="em" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0.8" dy="1.4" stdDeviation="1.1" flood-color="#492618" flood-opacity=".38"/><feDropShadow dx="-0.6" dy="-0.8" stdDeviation="0.5" flood-color="#ffffff" flood-opacity=".9"/></filter></defs>
+<g filter="url(#em)" fill="#f6f1e5"><circle cx="73.0" cy="0.0" r="6.2"/><circle cx="72.5" cy="12.1" r="6.2"/><circle cx="71.0" cy="24.1" r="6.2"/><circle cx="68.4" cy="35.9" r="6.2"/><circle cx="64.8" cy="47.5" r="6.2"/><circle cx="60.0" cy="58.6" r="6.2"/><circle cx="54.1" cy="69.2" r="6.2"/><circle cx="46.9" cy="78.9" r="6.2"/><circle cx="38.5" cy="87.5" r="6.2"/><circle cx="28.7" cy="94.7" r="6.2"/><circle cx="17.8" cy="99.9" r="6.2"/><circle cx="6.0" cy="102.6" r="6.2"/><circle cx="-6.0" cy="102.6" r="6.2"/><circle cx="-17.8" cy="99.9" r="6.2"/><circle cx="-28.7" cy="94.7" r="6.2"/><circle cx="-38.5" cy="87.5" r="6.2"/><circle cx="-46.9" cy="78.9" r="6.2"/><circle cx="-54.1" cy="69.2" r="6.2"/><circle cx="-60.0" cy="58.6" r="6.2"/><circle cx="-64.8" cy="47.5" r="6.2"/><circle cx="-68.4" cy="35.9" r="6.2"/><circle cx="-71.0" cy="24.1" r="6.2"/><circle cx="-72.5" cy="12.1" r="6.2"/><circle cx="-73.0" cy="0.0" r="6.2"/><circle cx="-72.5" cy="-12.1" r="6.2"/><circle cx="-71.0" cy="-24.1" r="6.2"/><circle cx="-68.4" cy="-35.9" r="6.2"/><circle cx="-64.8" cy="-47.5" r="6.2"/><circle cx="-60.0" cy="-58.6" r="6.2"/><circle cx="-54.1" cy="-69.2" r="6.2"/><circle cx="-46.9" cy="-78.9" r="6.2"/><circle cx="-38.5" cy="-87.5" r="6.2"/><circle cx="-28.7" cy="-94.7" r="6.2"/><circle cx="-17.8" cy="-99.9" r="6.2"/><circle cx="-6.0" cy="-102.6" r="6.2"/><circle cx="6.0" cy="-102.6" r="6.2"/><circle cx="17.8" cy="-99.9" r="6.2"/><circle cx="28.7" cy="-94.7" r="6.2"/><circle cx="38.5" cy="-87.5" r="6.2"/><circle cx="46.9" cy="-78.9" r="6.2"/><circle cx="54.1" cy="-69.2" r="6.2"/><circle cx="60.0" cy="-58.6" r="6.2"/><circle cx="64.8" cy="-47.5" r="6.2"/><circle cx="68.4" cy="-35.9" r="6.2"/><circle cx="71.0" cy="-24.1" r="6.2"/><circle cx="72.5" cy="-12.1" r="6.2"/><ellipse rx="73" ry="103"/></g>
+<g fill="#492618" opacity=".3"><circle cx="69.5" cy="0.0" r="0.9"/><circle cx="69.4" cy="6.4" r="0.9"/><circle cx="68.9" cy="12.7" r="0.9"/><circle cx="68.2" cy="19.1" r="0.9"/><circle cx="67.2" cy="25.3" r="0.9"/><circle cx="65.9" cy="31.6" r="0.9"/><circle cx="64.3" cy="37.7" r="0.9"/><circle cx="62.4" cy="43.8" r="0.9"/><circle cx="60.2" cy="49.8" r="0.9"/><circle cx="57.6" cy="55.6" r="0.9"/><circle cx="54.7" cy="61.3" r="0.9"/><circle cx="51.5" cy="66.8" r="0.9"/><circle cx="47.9" cy="72.1" r="0.9"/><circle cx="44.0" cy="77.1" r="0.9"/><circle cx="39.6" cy="81.7" r="0.9"/><circle cx="34.9" cy="86.0" r="0.9"/><circle cx="29.9" cy="89.9" r="0.9"/><circle cx="24.4" cy="93.2" r="0.9"/><circle cx="18.6" cy="95.9" r="0.9"/><circle cx="12.6" cy="97.9" r="0.9"/><circle cx="6.4" cy="99.1" r="0.9"/><circle cx="-0.0" cy="99.5" r="0.9"/><circle cx="-6.4" cy="99.1" r="0.9"/><circle cx="-12.6" cy="97.9" r="0.9"/><circle cx="-18.6" cy="95.9" r="0.9"/><circle cx="-24.4" cy="93.2" r="0.9"/><circle cx="-29.9" cy="89.9" r="0.9"/><circle cx="-34.9" cy="86.0" r="0.9"/><circle cx="-39.6" cy="81.7" r="0.9"/><circle cx="-44.0" cy="77.1" r="0.9"/><circle cx="-47.9" cy="72.1" r="0.9"/><circle cx="-51.5" cy="66.8" r="0.9"/><circle cx="-54.7" cy="61.3" r="0.9"/><circle cx="-57.6" cy="55.6" r="0.9"/><circle cx="-60.2" cy="49.8" r="0.9"/><circle cx="-62.4" cy="43.8" r="0.9"/><circle cx="-64.3" cy="37.7" r="0.9"/><circle cx="-65.9" cy="31.6" r="0.9"/><circle cx="-67.2" cy="25.3" r="0.9"/><circle cx="-68.2" cy="19.1" r="0.9"/><circle cx="-68.9" cy="12.7" r="0.9"/><circle cx="-69.4" cy="6.4" r="0.9"/><circle cx="-69.5" cy="-0.0" r="0.9"/><circle cx="-69.4" cy="-6.4" r="0.9"/><circle cx="-68.9" cy="-12.7" r="0.9"/><circle cx="-68.2" cy="-19.1" r="0.9"/><circle cx="-67.2" cy="-25.3" r="0.9"/><circle cx="-65.9" cy="-31.6" r="0.9"/><circle cx="-64.3" cy="-37.7" r="0.9"/><circle cx="-62.4" cy="-43.8" r="0.9"/><circle cx="-60.2" cy="-49.8" r="0.9"/><circle cx="-57.6" cy="-55.6" r="0.9"/><circle cx="-54.7" cy="-61.3" r="0.9"/><circle cx="-51.5" cy="-66.8" r="0.9"/><circle cx="-47.9" cy="-72.1" r="0.9"/><circle cx="-44.0" cy="-77.1" r="0.9"/><circle cx="-39.6" cy="-81.7" r="0.9"/><circle cx="-34.9" cy="-86.0" r="0.9"/><circle cx="-29.9" cy="-89.9" r="0.9"/><circle cx="-24.4" cy="-93.2" r="0.9"/><circle cx="-18.6" cy="-95.9" r="0.9"/><circle cx="-12.6" cy="-97.9" r="0.9"/><circle cx="-6.4" cy="-99.1" r="0.9"/><circle cx="-0.0" cy="-99.5" r="0.9"/><circle cx="6.4" cy="-99.1" r="0.9"/><circle cx="12.6" cy="-97.9" r="0.9"/><circle cx="18.6" cy="-95.9" r="0.9"/><circle cx="24.4" cy="-93.2" r="0.9"/><circle cx="29.9" cy="-89.9" r="0.9"/><circle cx="34.9" cy="-86.0" r="0.9"/><circle cx="39.6" cy="-81.7" r="0.9"/><circle cx="44.0" cy="-77.1" r="0.9"/><circle cx="47.9" cy="-72.1" r="0.9"/><circle cx="51.5" cy="-66.8" r="0.9"/><circle cx="54.7" cy="-61.3" r="0.9"/><circle cx="57.6" cy="-55.6" r="0.9"/><circle cx="60.2" cy="-49.8" r="0.9"/><circle cx="62.4" cy="-43.8" r="0.9"/><circle cx="64.3" cy="-37.7" r="0.9"/><circle cx="65.9" cy="-31.6" r="0.9"/><circle cx="67.2" cy="-25.3" r="0.9"/><circle cx="68.2" cy="-19.1" r="0.9"/><circle cx="68.9" cy="-12.7" r="0.9"/><circle cx="69.4" cy="-6.4" r="0.9"/></g>
+<image href="a/oval.jpg" x="-64" y="-94" width="128" height="188" preserveAspectRatio="xMidYMid slice" clip-path="url(#cA)"/>
+<ellipse rx="64" ry="94" fill="none" stroke="#492618" stroke-opacity=".35" stroke-width="1"/></svg></div>
+<button type="button" id="musicBtn" class="music" aria-label="ចាក់ / ផ្អាកតន្ត្រី · Play or pause music" aria-pressed="false" style="position:absolute;right:8px;top:326px;width:78px;height:78px">
+<svg width="78" height="78" viewBox="-39 -39 78 78" style="display:block"><circle r="38" fill="#f8f4ea" stroke="#492618" stroke-opacity=".55" stroke-width="1"/>
+<defs><path id="ring" d="M0,-27 a27,27 0 1,1 -0.01,0"/></defs>
+<g class="ringtext"><text font-family="Esteban" font-size="7.6" letter-spacing="2.6" fill="#492618"><textPath href="#ring">PLAY MUSIC · PLAY MUSIC · </textPath></text></g>
+<circle r="13" fill="#493224"/><path class="ic-play" d="M-3.5,-5.5 L6,0 L-3.5,5.5 Z" fill="#f8f4ea"/><g class="ic-pause" fill="#f8f4ea"><rect x="-5" y="-5.5" width="3.4" height="11"/><rect x="1.6" y="-5.5" width="3.4" height="11"/></g></svg></button>
+<div style="position:absolute;left:0;right:0;bottom:24px;text-align:center">
+<p style="margin:0;font-family:Bokor;font-size:17px;line-height:1.6">សូមគោរពអញ្ជើញ</p>
+<p id="guestName" style="margin:2px auto 0;width:212px;padding:0 0 4px;border-bottom:1px solid rgba(73,38,24,.45);font-family:Battambang;font-size:13px;line-height:1.7;overflow-wrap:anywhere">ភ្ញៀវកិត្តិយស</p>
+<p style="margin:10px 0 0;font-family:Esteban;font-size:13px;letter-spacing:.34em">19 . 12 . 2026</p></div>
+</div></div>
+    <button type="button" id="scrollHint" aria-label="រំកិលចុះ · Scroll down"><svg viewBox="0 0 22 20" width="22" height="20" aria-hidden="true"><path d="M5 6l6 6 6-6" fill="none" stroke="#e2c4a5" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+  </section>
+
+  <div class="body">
+    <div id="floral" aria-hidden="true"><div class="pin"><video id="floralVid" muted playsinline preload="none" poster="a/floral-poster.jpg"><source src="a/floral.mp4" type="video/mp4"></video></div></div>
+    <main class="col">
+<section id="invitation" class="sec"><div style="width:390px;box-sizing:border-box;padding:40px 24px 70px;font-family:Battambang,serif;color:#492618"><article class="tx-cream" style="position: relative; box-sizing: border-box; padding: 12px; box-shadow: 0 22px 40px rgba(0,0,0,0.42), 0 2px 5px rgba(0,0,0,0.25)">
+    <div style="box-sizing: border-box; padding: 3px; border: 1px solid rgba(73,38,24,0.55)">
+      <div style="box-sizing: border-box; padding: 30px 20px 54px; border: 1px solid rgba(73,38,24,0.28); display: flex; flex-direction: column; align-items: center; text-align: center">
+
+        <img loading="lazy" decoding="async" src="a/mono-cocoa.webp" alt="PT monogram" style="width: 66px; height: auto">
+
+        <div style="margin-top: 20px; width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; font-size: 12px; line-height: 1.85">
+          <p style="margin: 0">លោក អ៊ឹម សៅសុខា<br>លោកស្រី លឹម ច័ន្ទមាលា</p>
+          <p style="margin: 0">លោក តិច អ៊ាង<br>លោកស្រី នូ ពេជ្រសុវណ្ណារី</p>
+        </div>
+
+        <h1 style="margin: 22px 0 0; font-family: 'Bokor', serif; font-weight: 400; font-size: 20px; line-height: 1.6">មានកិត្តិយសសូមគោរពអញ្ជើញ</h1>
+        <p style="margin: 4px 0 0; font-family: 'Esteban', serif; font-size: 10px; line-height: 1.6; letter-spacing: 0.3em; text-transform: uppercase; color: #4a3325">Wedding Invitation</p>
+
+        <div aria-hidden="true" style="margin-top: 16px; width: 150px; display: flex; align-items: center; gap: 10px">
+          <span style="flex: 1 1 0; height: 1px; background: rgba(73,38,24,0.4)"></span>
+          <span style="width: 5px; height: 5px; transform: rotate(45deg); border: 1px solid rgba(73,38,24,0.6)"></span>
+          <span style="flex: 1 1 0; height: 1px; background: rgba(73,38,24,0.4)"></span>
+        </div>
+
+        <p style="margin: 16px 0 0; font-size: 12.5px; line-height: 2">ឯកឧត្តម លោកជំទាវ លោកឧកញ៉ា លោក លោកស្រី អ្នកនាង កញ្ញា ចូលរួមជាភ្ញៀវកិត្តិយស ដើម្បីប្រសិទ្ធពរជ័យ សិរីសួស្តី ជ័យមង្គល ក្នុងពិធីសិរីមង្គលអាពាហ៍ពិពាហ៍ កូនប្រុស កូនស្រី របស់យើងខ្ញុំ</p>
+
+        <div style="margin-top: 22px; display: flex; flex-direction: column; align-items: center">
+          <p style="margin: 0; font-family: 'Esteban', serif; font-size: 9.5px; line-height: 1.6; letter-spacing: 0.3em; text-transform: uppercase; color: #4a3325">The Groom</p>
+          <p style="margin: 2px 0 0; font-family: 'Bokor', serif; font-size: 21px; line-height: 1.6">សុខា បញ្ញា</p>
+          <p style="margin: 0; font-family: 'Pinyon Script', cursive; font-size: 24px; line-height: 1.15; color: #4a3325">Sokha Panha</p>
+
+          <p aria-hidden="true" style="margin: 10px 0; font-family: 'Pinyon Script', cursive; font-size: 22px; line-height: 1; color: #4a3325">&amp;</p>
+
+          <p style="margin: 0; font-family: 'Esteban', serif; font-size: 9.5px; line-height: 1.6; letter-spacing: 0.3em; text-transform: uppercase; color: #4a3325">The Bride</p>
+          <p style="margin: 2px 0 0; font-family: 'Bokor', serif; font-size: 21px; line-height: 1.6">អ៊ាង ពេជ្រវត្តី</p>
+          <p style="margin: 0; font-family: 'Pinyon Script', cursive; font-size: 24px; line-height: 1.15; color: #4a3325">Eang Pichvattey</p>
+        </div>
+
+        <div style="margin-top: 26px; width: 100%; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); align-items: center; column-gap: 12px">
+          <p style="margin: 0; padding: 7px 0; border-top: 1px solid rgba(73,38,24,0.45); border-bottom: 1px solid rgba(73,38,24,0.45); font-size: 12.5px; line-height: 1.6">ថ្ងៃសៅរ៍</p>
+          <p style="margin: 0; font-family: 'Bokor', serif; font-size: 38px; line-height: 1.2">១៩</p>
+          <p style="margin: 0; padding: 7px 0; border-top: 1px solid rgba(73,38,24,0.45); border-bottom: 1px solid rgba(73,38,24,0.45); font-size: 12.5px; line-height: 1.6">ខែធ្នូ</p>
+        </div>
+        <p style="margin: 6px 0 0; font-size: 12.5px; line-height: 1.8">ឆ្នាំ២០២៦ · វេលាម៉ោង ០៥:០០ ល្ងាច</p>
+        <p style="margin: 2px 0 0; font-family: 'Esteban', serif; font-size: 10px; line-height: 1.7; letter-spacing: 0.22em; text-transform: uppercase; color: #4a3325">Saturday · 19 December 2026 · 5:00 PM</p>
+        <p style="margin: 10px 0 0; font-size: 11px; line-height: 1.9; color: #4a3325">១០កើត ខែមិគសិរ ឆ្នាំមមី អដ្ឋស័ក ពុទ្ធសករាជ ២៥៧០</p>
+
+        <div aria-hidden="true" style="margin-top: 16px; width: 150px; display: flex; align-items: center; gap: 10px">
+          <span style="flex: 1 1 0; height: 1px; background: rgba(73,38,24,0.4)"></span>
+          <span style="width: 5px; height: 5px; transform: rotate(45deg); border: 1px solid rgba(73,38,24,0.6)"></span>
+          <span style="flex: 1 1 0; height: 1px; background: rgba(73,38,24,0.4)"></span>
+        </div>
+
+        <p style="margin: 16px 0 0; font-family: 'Esteban', serif; font-size: 12px; line-height: 1.6; letter-spacing: 0.26em; text-transform: uppercase">The Grand Terrace</p>
+        <p style="margin: 2px 0 0; font-size: 12px; line-height: 1.8; color: #4a3325">ដឹហ្គ្រេនធឺរ៉េស អគារ (B) · ទួលគោក</p>
+
+        <nav style="margin-top: 18px; width: 100%; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 12px">
+          <a href="#schedule" style="min-height: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; border-top: 1px solid rgba(73,38,24,0.45); border-bottom: 1px solid rgba(73,38,24,0.45)">
+            <span style="font-size: 12.5px; line-height: 1.5">កម្មវិធី និងផែនទី</span>
+            <span style="font-family: 'Esteban', serif; font-size: 9.5px; line-height: 1.5; letter-spacing: 0.26em; text-transform: uppercase; color: #4a3325">Program · Map</span>
+          </a>
+          <a href="#rsvp" style="min-height: 48px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-decoration: none; border-top: 1px solid rgba(73,38,24,0.45); border-bottom: 1px solid rgba(73,38,24,0.45)">
+            <span style="font-size: 12.5px; line-height: 1.5">ឆ្លើយតប</span>
+            <span style="font-family: 'Esteban', serif; font-size: 9.5px; line-height: 1.5; letter-spacing: 0.26em; text-transform: uppercase; color: #4a3325">Kindly reply</span>
+          </a>
+        </nav>
+
+        <p style="margin: 18px 0 0; font-family: 'Bokor', serif; font-size: 15px; line-height: 1.6">សូមអរគុណ</p>
+      </div>
+    </div>
+    <img loading="lazy" decoding="async" src="a/seal.webp" alt="" aria-hidden="true" style="position: absolute; left: 50%; bottom: -40px; width: 84px; height: 84px; margin-left: -42px">
+  </article></div></section>
+<section id="schedule" class="sec"><svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<filter id="sk1" filterUnits="userSpaceOnUse" x="-6" y="-6" width="76" height="76"><feTurbulence type="fractalNoise" baseFrequency="0.07" numOctaves="2" seed="3" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="2.4" xChannelSelector="R" yChannelSelector="G"/></filter>
+<filter id="sk2" filterUnits="userSpaceOnUse" x="-6" y="-6" width="76" height="76"><feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="11" result="n"/><feDisplacementMap in="SourceGraphic" in2="n" scale="3.4" xChannelSelector="G" yChannelSelector="R"/></filter>
+</defs></svg>
+<div style="width:390px;box-sizing:border-box;padding:40px 24px 60px;font-family:Battambang,serif;color:#492618">
+<article class="tx-cream" style="box-sizing:border-box;padding:12px;box-shadow:0 22px 40px rgba(0,0,0,.42),0 2px 5px rgba(0,0,0,.25)">
+<div style="box-sizing:border-box;padding:3px;border:1px solid rgba(73,38,24,.55)"><div style="box-sizing:border-box;padding:22px 10px 20px;border:1px solid rgba(73,38,24,.28);display:flex;flex-direction:column;align-items:center;text-align:center">
+<img loading="lazy" decoding="async" src="a/mono-cocoa.webp" alt="" style="width:42px;height:auto">
+<h1 style="margin:8px 0 0;font-family:Bokor;font-weight:400;font-size:20px;line-height:1.6">កម្មវិធីសិរីមង្គលអាពាហ៍ពិពាហ៍</h1>
+<p style="margin:4px 0 0;font-family:Esteban;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#4a3325">Order of the day</p>
+<p style="margin:10px 0 0;font-size:12px;line-height:1.8">ថ្ងៃសៅរ៍ ១០កើត ខែមិគសិរ ឆ្នាំមមី អដ្ឋស័ក ព.ស ២៥៧០<br>ត្រូវនឹងថ្ងៃទី១៩ ខែធ្នូ ឆ្នាំ២០២៦</p>
+<div aria-hidden="true" style="margin:10px auto 14px;width:150px;display:flex;align-items:center;gap:10px"><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span><span style="width:5px;height:5px;transform:rotate(45deg);border:1px solid rgba(73,38,24,.6)"></span><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span></div>
+<p style="margin:0;font-family:Bokor;font-size:18px;line-height:1.6">ពេលព្រឹក</p>
+<p style="margin:0;font-family:Esteban;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:#4a3325">Morning</p>
+<p style="margin:2px 0 4px;font-size:11.5px;line-height:1.6;color:#4a3325">ដឹហ្គ្រេនធឺរ៉េស អគារ (B) · ទួលគោក</p>
+<div class="timeline" style="position:relative;width:290px;height:1062.0px"><svg width="290" height="1062.0" viewBox="0 0 290 1062.0" aria-hidden="true" style="position:absolute;left:0;top:0">
+<path d="M145.0 8.0 L146.8 10.0 L149.4 12.0 L152.1 14.0 L154.6 16.0 L156.9 18.0 L159.3 20.0 L161.5 22.0 L163.6 24.0 L165.6 26.0 L167.5 28.0 L169.2 30.0 L170.8 32.0 L172.2 34.0 L173.5 36.0 L174.6 38.0 L175.4 40.0 L176.0 42.0 L176.5 44.0 L176.8 46.0 L176.9 48.0 L176.8 50.0 L176.4 52.0 L175.9 54.0 L175.3 56.0 L174.5 58.0 L173.7 60.0 L172.7 62.0 L171.6 64.0 L170.4 66.0 L169.1 68.0 L167.7 70.0 L166.1 72.0 L164.4 74.0 L162.7 76.0 L160.9 78.0 L158.9 80.0 L157.0 82.0 L154.8 84.0 L152.8 86.0 L150.6 88.0 L148.4 90.0 L146.2 92.0 L143.9 94.0 L141.7 96.0 L139.4 98.0 L137.2 100.0 L134.9 102.0 L132.6 104.0 L130.3 106.0 L128.0 108.0 L125.6 110.0 L123.3 112.0 L121.0 114.0 L118.7 116.0 L116.4 118.0 L114.2 120.0 L112.1 122.0 L109.9 124.0 L107.8 126.0 L105.9 128.0 L103.9 130.0 L102.1 132.0 L100.3 134.0 L98.6 136.0 L96.9 138.0 L95.4 140.0 L94.0 142.0 L92.7 144.0 L91.4 146.0 L90.4 148.0 L89.3 150.0 L88.4 152.0 L87.7 154.0 L87.0 156.0 L86.5 158.0 L86.0 160.0 L85.8 162.0 L85.6 164.0 L85.6 166.0 L85.7 168.0 L86.1 170.0 L86.6 172.0 L87.3 174.0 L88.2 176.0 L89.2 178.0 L90.3 180.0 L91.7 182.0 L93.2 184.0 L94.8 186.0 L96.6 188.0 L98.4 190.0 L100.5 192.0 L102.6 194.0 L104.7 196.0 L107.0 198.0 L109.4 200.0 L111.8 202.0 L114.3 204.0 L116.8 206.0 L119.4 208.0 L121.9 210.0 L124.5 212.0 L127.0 214.0 L129.6 216.0 L132.1 218.0 L134.6 220.0 L137.0 222.0 L139.4 224.0 L141.7 226.0 L143.8 228.0 L145.9 230.0 L148.0 232.0 L149.8 234.0 L151.6 236.0 L153.2 238.0 L154.8 240.0 L156.2 242.0 L157.4 244.0 L158.5 246.0 L159.4 248.0 L160.1 250.0 L160.7 252.0 L161.2 254.0 L161.4 256.0 L161.4 258.0 L161.3 260.0 L160.8 262.0 L160.1 264.0 L159.1 266.0 L157.9 268.0 L156.4 270.0 L154.7 272.0 L152.8 274.0 L150.8 276.0 L148.5 278.0 L146.2 280.0 L143.7 282.0 L141.1 284.0 L138.4 286.0 L135.7 288.0 L132.7 290.0 L129.8 292.0 L127.0 294.0 L124.0 296.0 L121.0 298.0 L118.1 300.0 L115.2 302.0 L112.3 304.0 L109.6 306.0 L106.9 308.0 L104.5 310.0 L102.1 312.0 L99.9 314.0 L97.9 316.0 L96.1 318.0 L94.5 320.0 L93.2 322.0 L92.1 324.0 L91.2 326.0 L90.6 328.0 L90.3 330.0 L90.2 332.0 L90.4 334.0 L90.8 336.0 L91.4 338.0 L92.2 340.0 L93.1 342.0 L94.2 344.0 L95.5 346.0 L96.9 348.0 L98.5 350.0 L100.3 352.0 L102.1 354.0 L104.1 356.0 L106.4 358.0 L108.7 360.0 L111.1 362.0 L113.6 364.0 L116.2 366.0 L118.9 368.0 L121.6 370.0 L124.4 372.0 L127.3 374.0 L130.1 376.0 L132.9 378.0 L135.6 380.0 L138.2 382.0 L140.8 384.0 L143.3 386.0 L145.6 388.0 L147.8 390.0 L150.0 392.0 L152.1 394.0 L154.0 396.0 L155.9 398.0 L157.7 400.0 L159.4 402.0 L161.0 404.0 L162.5 406.0 L163.9 408.0 L165.0 410.0 L166.1 412.0 L167.1 414.0 L167.8 416.0 L168.4 418.0 L168.8 420.0 L169.1 422.0 L169.2 424.0 L169.2 426.0 L168.9 428.0 L168.5 430.0 L168.0 432.0 L167.5 434.0 L166.8 436.0 L166.1 438.0 L165.4 440.0 L164.5 442.0 L163.6 444.0 L162.6 446.0 L161.6 448.0 L160.4 450.0 L159.3 452.0 L158.1 454.0 L156.7 456.0 L155.4 458.0 L154.0 460.0 L152.6 462.0 L151.1 464.0 L149.6 466.0 L148.0 468.0 L146.6 470.0 L145.0 472.0 L143.5 474.0 L141.9 476.0 L140.2 478.0 L138.7 480.0 L137.0 482.0 L135.3 484.0 L133.6 486.0 L131.9 488.0 L130.2 490.0 L128.4 492.0 L126.7 494.0 L124.8 496.0 L123.0 498.0 L121.2 500.0 L119.4 502.0 L117.6 504.0 L115.8 506.0 L113.9 508.0 L112.1 510.0 L110.3 512.0 L108.5 514.0 L106.8 516.0 L105.0 518.0 L103.2 520.0 L101.6 522.0 L99.9 524.0 L98.2 526.0 L96.6 528.0 L95.0 530.0 L93.5 532.0 L92.0 534.0 L90.5 536.0 L89.0 538.0 L87.7 540.0 L86.4 542.0 L85.1 544.0 L83.9 546.0 L82.7 548.0 L81.7 550.0 L80.6 552.0 L79.5 554.0 L78.7 556.0 L77.8 558.0 L77.0 560.0 L76.2 562.0 L75.6 564.0 L75.0 566.0 L74.5 568.0 L74.0 570.0 L73.6 572.0 L73.3 574.0 L73.1 576.0 L72.9 578.0 L72.8 580.0 L72.8 582.0 L72.8 584.0 L73.1 586.0 L73.3 588.0 L73.7 590.0 L74.1 592.0 L74.7 594.0 L75.3 596.0 L76.0 598.0 L76.8 600.0 L77.8 602.0 L78.7 604.0 L79.7 606.0 L80.8 608.0 L82.0 610.0 L83.2 612.0 L84.4 614.0 L85.9 616.0 L87.3 618.0 L88.8 620.0 L90.3 622.0 L91.9 624.0 L93.4 626.0 L95.0 628.0 L96.8 630.0 L98.6 632.0 L100.2 634.0 L102.0 636.0 L103.8 638.0 L105.5 640.0 L107.3 642.0 L109.1 644.0 L110.9 646.0 L112.6 648.0 L114.4 650.0 L116.2 652.0 L117.8 654.0 L119.6 656.0 L121.3 658.0 L122.9 660.0 L124.5 662.0 L126.1 664.0 L127.6 666.0 L129.1 668.0 L130.5 670.0 L131.9 672.0 L133.2 674.0 L134.5 676.0 L135.8 678.0 L137.0 680.0 L138.2 682.0 L139.5 684.0 L141.0 686.0 L142.4 688.0 L143.8 690.0 L145.2 692.0 L146.6 694.0 L147.9 696.0 L149.3 698.0 L150.5 700.0 L151.6 702.0 L152.7 704.0 L153.6 706.0 L154.5 708.0 L155.3 710.0 L156.0 712.0 L156.6 714.0 L157.1 716.0 L157.6 718.0 L158.0 720.0 L158.4 722.0 L158.6 724.0 L158.8 726.0 L158.9 728.0 L159.0 730.0 L158.9 732.0 L158.8 734.0 L158.6 736.0 L158.4 738.0 L158.2 740.0 L157.9 742.0 L157.5 744.0 L156.9 746.0 L156.5 748.0 L155.9 750.0 L155.4 752.0 L154.7 754.0 L154.1 756.0 L153.3 758.0 L152.6 760.0 L151.7 762.0 L151.1 764.0 L150.2 766.0 L149.2 768.0 L148.4 770.0 L147.4 772.0 L146.5 774.0 L145.5 776.0 L144.4 778.0 L145.0 780.0 L145.0 780.0" fill="none" stroke="#4a3325" stroke-width="1.3" stroke-dasharray="5 5" stroke-linecap="round" class="tl-path"/><path d="M145.0 872.0 L148.4 874.0 L151.4 876.0 L154.5 878.0 L157.6 880.0 L160.4 882.0 L163.3 884.0 L166.0 886.0 L168.6 888.0 L171.2 890.0 L173.7 892.0 L175.9 894.0 L178.0 896.0 L180.0 898.0 L181.8 900.0 L183.4 902.0 L184.8 904.0 L185.9 906.0 L187.0 908.0 L187.8 910.0 L188.4 912.0 L188.8 914.0 L188.9 916.0 L188.8 918.0 L188.3 920.0 L187.4 922.0 L186.2 924.0 L184.7 926.0 L182.7 928.0 L180.7 930.0 L178.3 932.0 L175.6 934.0 L172.8 936.0 L169.8 938.0 L166.5 940.0 L163.2 942.0 L159.8 944.0 L156.3 946.0 L152.7 948.0 L149.1 950.0 L145.6 952.0 L142.0 954.0 L138.5 956.0 L135.2 958.0 L131.8 960.0 L128.7 962.0 L125.8 964.0 L123.0 966.0 L120.5 968.0 L118.3 970.0 L116.2 972.0 L114.5 974.0 L113.2 976.0 L112.2 978.0 L111.4 980.0 L111.1 982.0 L111.0 984.0 L110.9 986.0 L110.9 988.0 L111.1 990.0 L111.2 992.0 L111.5 994.0 L111.8 996.0 L112.2 998.0 L112.7 1000.0 L113.2 1002.0 L113.8 1004.0 L114.5 1006.0 L115.3 1008.0 L116.1 1010.0 L116.9 1012.0 L117.8 1014.0 L118.8 1016.0 L119.9 1018.0 L121.0 1020.0 L122.1 1022.0 L123.4 1024.0 L124.6 1026.0 L125.9 1028.0 L127.2 1030.0 L128.6 1032.0 L130.0 1034.0 L131.4 1036.0 L132.8 1038.0 L134.3 1040.0 L135.9 1042.0 L137.4 1044.0 L139.0 1046.0 L140.5 1048.0 L142.1 1050.0 L143.7 1052.0 L145.0 1054.0 L145.0 1054.0" fill="none" stroke="#4a3325" stroke-width="1.3" stroke-dasharray="5 5" stroke-linecap="round" class="tl-path"/>
+<circle cx="176.6" cy="51.0" r="3" fill="#4a3325"/><circle cx="85.6" cy="164.0" r="3" fill="#4a3325"/><circle cx="161.4" cy="258.0" r="3" fill="#4a3325"/><circle cx="90.4" cy="334.0" r="3" fill="#4a3325"/><circle cx="168.7" cy="429.0" r="3" fill="#4a3325"/><circle cx="72.9" cy="578.0" r="3" fill="#4a3325"/><circle cx="154.5" cy="708.0" r="3" fill="#4a3325"/><circle cx="188.9" cy="915.0" r="3" fill="#4a3325"/><circle cx="111.1" cy="982.0" r="3" fill="#4a3325"/>
+<path d="M145 3L150 8L145 13L140 8Z" fill="#4a3325"/><path d="M145 775.0L150 780.0L145 785.0L140 780.0Z" fill="#4a3325"/><path d="M145 867.0L150 872.0L145 877.0L140 872.0Z" fill="#4a3325"/><path d="M145 1049.0L150 1054.0L145 1059.0L140 1054.0Z" fill="#4a3325"/></svg><div class="tx" style="position:absolute;left:12px;top:51px;width:134px;transform:translateY(-50%);text-align:center"><div style="display:flex;align-items:center;justify-content:center;gap:4px"><svg width="40" height="40" viewBox="-4 -4 72 72" fill="none" stroke="#4a3325" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="overflow:visible"><g filter="url(#sk1)" stroke-width="1.25"><path d="M32 12C24 24 24 37 32 46C40 37 40 24 32 12Z"/><path d="M32 46C22 44 14 34 14 21C22 24 28 32 32 46"/><path d="M32 46C42 44 50 34 50 21C42 24 36 32 32 46"/><path d="M31 48C20 50 9 44 5 33C14 33 24 38 31 48"/><path d="M33 48C44 50 55 44 59 33C50 33 40 38 33 48"/><path d="M32 20V40"/><path d="M20 28C23 33 27 39 30 43"/><path d="M44 28C41 33 37 39 34 43"/><path d="M12 37C16 39 21 42 25 45"/><path d="M52 37C48 39 43 42 39 45"/><path d="M12 55C16 53 20 57 24 55"/><path d="M28 57C32 55 36 59 40 57"/><path d="M44 55C47 54 50 56 53 55"/></g><g filter="url(#sk2)" stroke-width="0.8" opacity=".6" transform="translate(.5 .4)"><path d="M32 12C24 24 24 37 32 46C40 37 40 24 32 12Z"/><path d="M32 46C22 44 14 34 14 21C22 24 28 32 32 46"/><path d="M32 46C42 44 50 34 50 21C42 24 36 32 32 46"/><path d="M31 48C20 50 9 44 5 33C14 33 24 38 31 48"/><path d="M33 48C44 50 55 44 59 33C50 33 40 38 33 48"/><path d="M32 20V40"/><path d="M20 28C23 33 27 39 30 43"/><path d="M44 28C41 33 37 39 34 43"/><path d="M12 37C16 39 21 42 25 45"/><path d="M52 37C48 39 43 42 39 45"/><path d="M12 55C16 53 20 57 24 55"/><path d="M28 57C32 55 36 59 40 57"/><path d="M44 55C47 54 50 56 53 55"/></g></svg><p style="margin:0;font-family:Bokor;font-size:22px;line-height:1.2;white-space:nowrap">០៦:៣០<span style="font-family:Battambang;font-size:11px"> </span></p></div>
+<p style="margin:0;font-size:11.5px;line-height:1.55;white-space:nowrap">ការជួបជុំភ្ញៀវកិត្តិយស</p>
+<p style="margin:1px 0 0;font-family:Esteban;font-size:8px;line-height:1.4;letter-spacing:.22em;text-transform:uppercase;color:#4a3325">Guests arrive</p></div><div class="tx" style="position:absolute;left:144px;top:164px;width:134px;transform:translateY(-50%);text-align:center"><div style="display:flex;align-items:center;justify-content:center;gap:4px"><svg width="40" height="40" viewBox="-4 -4 72 72" fill="none" stroke="#4a3325" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="overflow:visible"><g filter="url(#sk1)" stroke-width="1.25"><path d="M9 34H55C53 42 45 46 32 46C19 46 11 42 9 34Z"/><path d="M28 46L26 54H38L36 46"/><path d="M19 57H45"/><path d="M22 55H42"/><circle cx="22" cy="27" r="7"/><circle cx="35" cy="24" r="8"/><path d="M42.5 22.5A6 6 0 1 1 43 33.6"/><path d="M35 16V12.5"/><path d="M35 15C37 10 42 9 45 10C44 14 40 16 35 15"/><path d="M36.5 13.5L42 11.5"/><path d="M22 20C22 18.5 23 17.5 24 16.5"/><path d="M30 22C31 20 33 19 35.5 19"/><path d="M18 25C18.5 23.5 19.5 22.5 21 22"/><path d="M40 38L44 42"/><path d="M44 37L48 40.5"/><path d="M48 36L51 38.5"/><path d="M14 37C16 40 19 42 22 43"/></g><g filter="url(#sk2)" stroke-width="0.8" opacity=".6" transform="translate(.5 .4)"><path d="M9 34H55C53 42 45 46 32 46C19 46 11 42 9 34Z"/><path d="M28 46L26 54H38L36 46"/><path d="M19 57H45"/><path d="M22 55H42"/><circle cx="22" cy="27" r="7"/><circle cx="35" cy="24" r="8"/><path d="M42.5 22.5A6 6 0 1 1 43 33.6"/><path d="M35 16V12.5"/><path d="M35 15C37 10 42 9 45 10C44 14 40 16 35 15"/><path d="M36.5 13.5L42 11.5"/><path d="M22 20C22 18.5 23 17.5 24 16.5"/><path d="M30 22C31 20 33 19 35.5 19"/><path d="M18 25C18.5 23.5 19.5 22.5 21 22"/><path d="M40 38L44 42"/><path d="M44 37L48 40.5"/><path d="M48 36L51 38.5"/><path d="M14 37C16 40 19 42 22 43"/></g></svg><p style="margin:0;font-family:Bokor;font-size:22px;line-height:1.2;white-space:nowrap">០៧:០០<span style="font-family:Battambang;font-size:11px"> </span></p></div>
+<p style="margin:0;font-size:11.5px;line-height:1.55;white-space:nowrap">ពិធីហែជំនូន (កំណត់)<br>អ្នកមហានិយាយជើងការ<br>ពិធីរៀង ឬរៀបរាប់ផ្លែឈើ<br>ព្រេន ឬសែនជំនូន</p>
+<p style="margin:1px 0 0;font-family:Esteban;font-size:8px;line-height:1.4;letter-spacing:.22em;text-transform:uppercase;color:#4a3325">Gift procession</p></div><div class="tx" style="position:absolute;left:12px;top:258px;width:134px;transform:translateY(-50%);text-align:center"><p style="margin:0;font-family:Bokor;font-size:13px;line-height:1.5;color:#4a3325">អាហារពេលព្រឹក</p>
+<p style="margin:0;font-family:Esteban;font-size:8.5px;line-height:1.5;letter-spacing:.24em;text-transform:uppercase;color:#4a3325">Breakfast</p></div><div class="tx" style="position:absolute;left:144px;top:334px;width:134px;transform:translateY(-50%);text-align:center"><div style="display:flex;align-items:center;justify-content:center;gap:4px"><svg width="40" height="40" viewBox="-4 -4 72 72" fill="none" stroke="#4a3325" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="overflow:visible"><g filter="url(#sk1)" stroke-width="1.25"><path d="M32 7C27 14 28 21 32 22C36 21 37 14 32 7Z"/><path d="M32 13C30.5 16 30.5 19 32 20"/><path d="M32 22V26"/><path d="M26 26H38V48H26Z"/><path d="M26 31C28 34 30 30 31 34C32 37 35 32 38 33"/><path d="M35 38V45"/><path d="M29 40V44"/><path d="M15 48H49C49 54 42 57 32 57C22 57 15 54 15 48Z"/><path d="M49 50C55 48 55 56 47 54.5"/><path d="M22 12L19 10"/><path d="M42 12L45 10"/><path d="M21 18H17"/><path d="M43 18H47"/><path d="M26 4L25 1.5"/><path d="M38 4L39 1.5"/></g><g filter="url(#sk2)" stroke-width="0.8" opacity=".6" transform="translate(.5 .4)"><path d="M32 7C27 14 28 21 32 22C36 21 37 14 32 7Z"/><path d="M32 13C30.5 16 30.5 19 32 20"/><path d="M32 22V26"/><path d="M26 26H38V48H26Z"/><path d="M26 31C28 34 30 30 31 34C32 37 35 32 38 33"/><path d="M35 38V45"/><path d="M29 40V44"/><path d="M15 48H49C49 54 42 57 32 57C22 57 15 54 15 48Z"/><path d="M49 50C55 48 55 56 47 54.5"/><path d="M22 12L19 10"/><path d="M42 12L45 10"/><path d="M21 18H17"/><path d="M43 18H47"/><path d="M26 4L25 1.5"/><path d="M38 4L39 1.5"/></g></svg><p style="margin:0;font-family:Bokor;font-size:22px;line-height:1.2;white-space:nowrap">០៨:៣០<span style="font-family:Battambang;font-size:11px"> </span></p></div>
+<p style="margin:0;font-size:11.5px;line-height:1.55;white-space:nowrap">ពិធីសូត្រមន្ត<br>ចម្រើនព្រះបរិត្ត</p>
+<p style="margin:1px 0 0;font-family:Esteban;font-size:8px;line-height:1.4;letter-spacing:.22em;text-transform:uppercase;color:#4a3325">Monks’ blessing</p></div><div class="tx" style="position:absolute;left:12px;top:429px;width:134px;transform:translateY(-50%);text-align:center"><div style="display:flex;align-items:center;justify-content:center;gap:4px"><svg width="40" height="40" viewBox="-4 -4 72 72" fill="none" stroke="#4a3325" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="overflow:visible"><g filter="url(#sk1)" stroke-width="1.25"><circle cx="14" cy="49" r="6"/><circle cx="32" cy="49" r="6"/><circle cx="14" cy="49" r="3.4"/><circle cx="32" cy="49" r="3.4"/><path d="M17.5 44L35 9"/><path d="M28.5 44L11 9"/><path d="M33 12.5L21 36"/><path d="M13 12.5L25 36"/><circle cx="23" cy="29" r="1.2"/><path d="M47 10H52C54 10 55 11 55 13V51C55 53 54 54 52 54H47Z"/><path d="M47 14H41"/><path d="M47 18H41"/><path d="M47 22H41"/><path d="M47 26H41"/><path d="M47 30H41"/><path d="M47 34H41"/><path d="M47 38H41"/><path d="M47 42H41"/><path d="M47 46H41"/><path d="M47 50H41"/></g><g filter="url(#sk2)" stroke-width="0.8" opacity=".6" transform="translate(.5 .4)"><circle cx="14" cy="49" r="6"/><circle cx="32" cy="49" r="6"/><circle cx="14" cy="49" r="3.4"/><circle cx="32" cy="49" r="3.4"/><path d="M17.5 44L35 9"/><path d="M28.5 44L11 9"/><path d="M33 12.5L21 36"/><path d="M13 12.5L25 36"/><circle cx="23" cy="29" r="1.2"/><path d="M47 10H52C54 10 55 11 55 13V51C55 53 54 54 52 54H47Z"/><path d="M47 14H41"/><path d="M47 18H41"/><path d="M47 22H41"/><path d="M47 26H41"/><path d="M47 30H41"/><path d="M47 34H41"/><path d="M47 38H41"/><path d="M47 42H41"/><path d="M47 46H41"/><path d="M47 50H41"/></g></svg><p style="margin:0;font-family:Bokor;font-size:22px;line-height:1.2;white-space:nowrap">០៩:០០<span style="font-family:Battambang;font-size:11px"> </span></p></div>
+<p style="margin:0;font-size:11.5px;line-height:1.55;white-space:nowrap">ពិធីកាត់សក់បង្កក់សិរី</p>
+<p style="margin:1px 0 0;font-family:Esteban;font-size:8px;line-height:1.4;letter-spacing:.22em;text-transform:uppercase;color:#4a3325">Hair-cutting</p></div><div class="tx" style="position:absolute;left:144px;top:578px;width:134px;transform:translateY(-50%);text-align:center"><div style="display:flex;align-items:center;justify-content:center;gap:4px"><svg width="40" height="40" viewBox="-4 -4 72 72" fill="none" stroke="#4a3325" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="overflow:visible"><g filter="url(#sk1)" stroke-width="1.25"><circle cx="25" cy="37" r="13"/><circle cx="25" cy="37" r="10"/><path d="M34.5 27.5A13 13 0 1 1 34.5 46.5"/><path d="M36.5 30.5A10 10 0 1 1 36.5 43.5"/><path d="M25 24L20 18L23 14H27L30 18Z"/><path d="M20 18H30"/><path d="M23 14L25 18L27 14"/><path d="M25 18V24"/><path d="M38 10V15"/><path d="M35.5 12.5H40.5"/><path d="M13 14L14.5 17"/><path d="M48 18L46.5 20.5"/><path d="M16 43C18 46 21 48 25 48"/><path d="M47 44C49 42 50 40 50 37"/></g><g filter="url(#sk2)" stroke-width="0.8" opacity=".6" transform="translate(.5 .4)"><circle cx="25" cy="37" r="13"/><circle cx="25" cy="37" r="10"/><path d="M34.5 27.5A13 13 0 1 1 34.5 46.5"/><path d="M36.5 30.5A10 10 0 1 1 36.5 43.5"/><path d="M25 24L20 18L23 14H27L30 18Z"/><path d="M20 18H30"/><path d="M23 14L25 18L27 14"/><path d="M25 18V24"/><path d="M38 10V15"/><path d="M35.5 12.5H40.5"/><path d="M13 14L14.5 17"/><path d="M48 18L46.5 20.5"/><path d="M16 43C18 46 21 48 25 48"/><path d="M47 44C49 42 50 40 50 37"/></g></svg><p style="margin:0;font-family:Bokor;font-size:22px;line-height:1.2;white-space:nowrap">១០:៣០<span style="font-family:Battambang;font-size:11px"> </span></p></div>
+<p style="margin:0;font-size:11.5px;line-height:1.55;white-space:nowrap">ពិធីសំពះពេលា -<br>ពិធីបើកវាំងនន<br>ពិធីបង្វិលពពិល<br>ពិធីក្រាបសំពះផ្ទឹម<br>និងគួចចំណងដៃ<br>ពិធីបាចផ្កាស្លា<br>ប្រសិទ្ធពរជ័យ<br>ព្រះថោងតោងស្បៃនាងនាគ</p>
+<p style="margin:1px 0 0;font-family:Esteban;font-size:8px;line-height:1.4;letter-spacing:.22em;text-transform:uppercase;color:#4a3325">Blessing ceremonies</p></div><div class="tx" style="position:absolute;left:12px;top:708px;width:134px;transform:translateY(-50%);text-align:center"><p style="margin:0;font-family:Bokor;font-size:13px;line-height:1.5;color:#4a3325">អាហារថ្ងៃត្រង់</p>
+<p style="margin:0;font-family:Esteban;font-size:8.5px;line-height:1.5;letter-spacing:.24em;text-transform:uppercase;color:#4a3325">Lunch</p></div><div style="position:absolute;left:0;right:0;top:792.0px;text-align:center">
+<p style="margin:0;font-family:Bokor;font-size:18px;line-height:1.6">ពេលល្ងាច</p>
+<p style="margin:0;font-family:Esteban;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:#4a3325">Evening reception</p>
+<p style="margin:4px 0 0;font-size:11.5px;line-height:1.7;color:#4a3325">ដឹហ្គ្រេនធឺរ៉េស អគារ (B) · ទួលគោក</p></div><div class="tx" style="position:absolute;left:12px;top:915px;width:134px;transform:translateY(-50%);text-align:center"><div style="display:flex;align-items:center;justify-content:center;gap:4px"><svg width="40" height="40" viewBox="-4 -4 72 72" fill="none" stroke="#4a3325" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="overflow:visible"><g filter="url(#sk1)" stroke-width="1.25"><g transform="translate(22 39) rotate(-14)"><path d="M-6 -23C-6 -9 -3 -2 0 -2C3 -2 6 -9 6 -23Z"/><path d="M-5.6 -15C-2 -13.5 2 -16 5.6 -14.5"/><circle cx="-2" cy="-10" r=".8"/><circle cx="1.6" cy="-6.5" r=".8"/><circle cx="2.5" cy="-11.5" r=".6"/><path d="M0 -2V16"/><path d="M-6.5 16.5C-3 15 3 15 6.5 16.5"/><path d="M-6.5 16.5C-3 18 3 18 6.5 16.5"/></g><g transform="translate(42 39) rotate(14)"><path d="M-6 -23C-6 -9 -3 -2 0 -2C3 -2 6 -9 6 -23Z"/><path d="M-5.6 -15C-2 -16.5 2 -13.5 5.6 -14.5"/><circle cx="2" cy="-10" r=".8"/><circle cx="-1.6" cy="-6.5" r=".8"/><circle cx="-2.5" cy="-11.5" r=".6"/><path d="M0 -2V16"/><path d="M-6.5 16.5C-3 15 3 15 6.5 16.5"/><path d="M-6.5 16.5C-3 18 3 18 6.5 16.5"/></g><path d="M32 3V8"/><path d="M25 5L27.5 9.5"/><path d="M39 5L36.5 9.5"/><path d="M20 9L23 11.5"/><path d="M44 9L41 11.5"/></g><g filter="url(#sk2)" stroke-width="0.8" opacity=".6" transform="translate(.5 .4)"><g transform="translate(22 39) rotate(-14)"><path d="M-6 -23C-6 -9 -3 -2 0 -2C3 -2 6 -9 6 -23Z"/><path d="M-5.6 -15C-2 -13.5 2 -16 5.6 -14.5"/><circle cx="-2" cy="-10" r=".8"/><circle cx="1.6" cy="-6.5" r=".8"/><circle cx="2.5" cy="-11.5" r=".6"/><path d="M0 -2V16"/><path d="M-6.5 16.5C-3 15 3 15 6.5 16.5"/><path d="M-6.5 16.5C-3 18 3 18 6.5 16.5"/></g><g transform="translate(42 39) rotate(14)"><path d="M-6 -23C-6 -9 -3 -2 0 -2C3 -2 6 -9 6 -23Z"/><path d="M-5.6 -15C-2 -16.5 2 -13.5 5.6 -14.5"/><circle cx="2" cy="-10" r=".8"/><circle cx="-1.6" cy="-6.5" r=".8"/><circle cx="-2.5" cy="-11.5" r=".6"/><path d="M0 -2V16"/><path d="M-6.5 16.5C-3 15 3 15 6.5 16.5"/><path d="M-6.5 16.5C-3 18 3 18 6.5 16.5"/></g><path d="M32 3V8"/><path d="M25 5L27.5 9.5"/><path d="M39 5L36.5 9.5"/><path d="M20 9L23 11.5"/><path d="M44 9L41 11.5"/></g></svg><p style="margin:0;font-family:Bokor;font-size:22px;line-height:1.2;white-space:nowrap">០៥:០០<span style="font-family:Battambang;font-size:11px"> ល្ងាច</span></p></div>
+<p style="margin:0;font-size:11.5px;line-height:1.55;white-space:nowrap">ការជួបជុំភ្ញៀវកិត្តិយស</p>
+<p style="margin:1px 0 0;font-family:Esteban;font-size:8px;line-height:1.4;letter-spacing:.22em;text-transform:uppercase;color:#4a3325">Guests arrive</p></div><div class="tx" style="position:absolute;left:144px;top:982px;width:134px;transform:translateY(-50%);text-align:center"><p style="margin:0;font-family:Bokor;font-size:13px;line-height:1.5;color:#4a3325">អាហារពេលល្ងាច</p>
+<p style="margin:0;font-family:Esteban;font-size:8.5px;line-height:1.5;letter-spacing:.24em;text-transform:uppercase;color:#4a3325">Dinner</p></div></div>
+<p style="margin:8px 0 0;font-family:Bokor;font-size:15px;line-height:1.6">សូមអរគុណ</p>
+</div></div></article></div></section>
+<section id="venue" class="sec"><div style="width:390px;box-sizing:border-box;padding:40px 24px 70px;font-family:Battambang,serif;color:#492618"><article class="tx-cream" style="position:relative;box-sizing:border-box;padding:12px;box-shadow:0 22px 40px rgba(0,0,0,.42),0 2px 5px rgba(0,0,0,.25)">
+<div style="box-sizing:border-box;padding:3px;border:1px solid rgba(73,38,24,.55)"><div style="box-sizing:border-box;padding:28px 20px 50px;border:1px solid rgba(73,38,24,.28);display:flex;flex-direction:column;align-items:center;text-align:center">
+<img loading="lazy" decoding="async" src="a/mono-cocoa.webp" alt="" style="width:50px;height:auto">
+<h1 style="margin:10px 0 0;font-family:Bokor;font-weight:400;font-size:21px;line-height:1.6">ទីតាំងកម្មវិធី</h1>
+<p style="margin:2px 0 0;font-family:Esteban;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#4a3325">Venue</p>
+<div aria-hidden="true" style="margin:16px auto 18px;width:150px;display:flex;align-items:center;gap:10px"><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span><span style="width:5px;height:5px;transform:rotate(45deg);border:1px solid rgba(73,38,24,.6)"></span><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span></div>
+
+<p style="margin:12px 0 0;font-family:Esteban;font-size:17px;letter-spacing:.16em;text-transform:uppercase;white-space:nowrap">The Grand Terrace</p>
+<p style="margin:4px 0 0;font-size:12.5px;line-height:1.8">ដឹហ្គ្រេនធឺរ៉េស អគារ (B) · ទួលគោក · ភ្នំពេញ</p>
+<p style="margin:2px 0 0;font-size:12px;line-height:1.8;color:#4a3325">ថ្ងៃសៅរ៍ ទី១៩ ខែធ្នូ ឆ្នាំ២០២៦</p>
+<a href="https://www.google.com/maps/place/The+Grand+Terrace/@11.5822492,104.9029981,18z" target="_blank" rel="noopener" aria-label="Google Maps: The Grand Terrace" style="display:block;margin-top:18px;padding:10px;background:#fbf8f1;border:1px solid rgba(73,38,24,.35)"><svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 37 37" shape-rendering="crispEdges" class="segno"><path class="qrline" stroke="#3b2214" d="M0 0.5h7m1 0h1m2 0h6m3 0h3m1 0h2m2 0h1m1 0h7m-37 1h1m5 0h1m1 0h4m1 0h1m3 0h1m1 0h2m3 0h1m5 0h1m5 0h1m-37 1h1m1 0h3m1 0h1m1 0h1m2 0h2m2 0h2m2 0h3m3 0h4m1 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m2 0h3m1 0h1m1 0h2m2 0h3m2 0h2m1 0h2m1 0h1m1 0h3m1 0h1m-37 1h1m1 0h3m1 0h1m1 0h1m1 0h6m1 0h1m1 0h2m1 0h1m3 0h1m1 0h1m1 0h1m1 0h3m1 0h1m-37 1h1m5 0h1m2 0h2m2 0h1m3 0h2m1 0h2m1 0h1m1 0h1m4 0h1m5 0h1m-37 1h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7m-28 1h1m1 0h1m1 0h4m2 0h1m5 0h4m-29 1h1m2 0h6m4 0h2m2 0h3m2 0h2m5 0h1m2 0h1m1 0h3m-35 1h3m6 0h2m3 0h1m2 0h2m2 0h3m1 0h2m3 0h4m-35 1h8m1 0h2m1 0h5m3 0h1m1 0h2m2 0h2m1 0h4m2 0h1m-34 1h1m3 0h1m3 0h4m1 0h3m3 0h3m6 0h1m1 0h4m-37 1h3m3 0h1m1 0h1m2 0h1m1 0h4m2 0h2m2 0h2m2 0h2m1 0h1m2 0h1m2 0h1m-37 1h1m3 0h1m2 0h2m1 0h1m2 0h1m1 0h4m2 0h3m1 0h5m2 0h2m1 0h2m-35 1h5m1 0h1m3 0h1m1 0h2m2 0h5m4 0h1m1 0h1m2 0h5m-34 1h1m1 0h1m1 0h1m1 0h2m3 0h1m1 0h1m1 0h3m2 0h1m2 0h2m1 0h1m1 0h1m1 0h3m-36 1h4m2 0h1m2 0h1m1 0h1m1 0h1m1 0h1m9 0h2m1 0h1m1 0h1m3 0h2m-33 1h1m7 0h1m1 0h1m5 0h1m4 0h1m1 0h6m1 0h2m-35 1h2m2 0h1m1 0h3m1 0h1m2 0h1m2 0h5m1 0h2m1 0h1m1 0h2m1 0h1m3 0h1m1 0h1m-34 1h1m1 0h1m1 0h1m1 0h4m2 0h2m1 0h3m1 0h1m1 0h2m1 0h3m1 0h3m2 0h1m-35 1h2m2 0h1m1 0h1m1 0h2m4 0h2m4 0h1m1 0h1m3 0h5m-30 1h3m1 0h4m2 0h3m1 0h3m2 0h3m1 0h2m1 0h1m2 0h1m1 0h1m-35 1h7m2 0h1m2 0h4m2 0h1m2 0h1m1 0h1m3 0h5m1 0h1m1 0h2m-37 1h3m1 0h2m3 0h1m2 0h2m1 0h4m3 0h2m3 0h1m1 0h8m-36 1h1m4 0h4m2 0h1m1 0h2m1 0h3m2 0h1m3 0h6m4 0h1m-37 1h6m4 0h1m1 0h1m5 0h1m1 0h5m2 0h1m1 0h1m2 0h1m-33 1h2m1 0h1m1 0h2m2 0h1m4 0h2m3 0h2m3 0h1m1 0h2m1 0h2m2 0h1m1 0h2m-37 1h1m1 0h3m3 0h1m7 0h1m3 0h1m5 0h1m1 0h2m2 0h4m-36 1h1m1 0h1m3 0h2m1 0h1m2 0h2m1 0h2m1 0h3m1 0h1m1 0h2m1 0h6m1 0h1m-27 1h6m1 0h1m1 0h4m4 0h1m2 0h1m3 0h1m1 0h2m-36 1h7m1 0h1m4 0h3m1 0h4m1 0h2m1 0h2m1 0h1m1 0h1m1 0h1m3 0h1m-37 1h1m5 0h1m1 0h2m1 0h1m1 0h1m1 0h2m1 0h2m3 0h1m1 0h1m1 0h2m3 0h1m-33 1h1m1 0h3m1 0h1m1 0h1m1 0h7m1 0h1m1 0h1m1 0h3m2 0h6m2 0h1m-36 1h1m1 0h3m1 0h1m1 0h2m1 0h4m2 0h4m2 0h2m5 0h1m3 0h1m1 0h1m-37 1h1m1 0h3m1 0h1m3 0h2m2 0h1m3 0h1m2 0h1m1 0h4m1 0h2m2 0h3m1 0h1m-37 1h1m5 0h1m2 0h2m1 0h1m1 0h2m1 0h1m4 0h1m1 0h1m1 0h2m1 0h2m1 0h5m-37 1h7m1 0h3m2 0h1m2 0h2m2 0h1m2 0h2m2 0h2m1 0h2m1 0h1m2 0h1"/></svg>
+</a>
+<p style="margin:10px 0 0;font-size:12px;line-height:1.6">ស្កេនដើម្បីមើលទីតាំង</p>
+<p style="margin:0;font-family:Esteban;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:#4a3325">Scan for directions</p>
+<div style="width:100%;margin-top:18px"><a class="btn-dark" href="https://www.google.com/maps/place/The+Grand+Terrace/@11.5822492,104.9029981,18z" target="_blank" rel="noopener" style="width:100%;min-height:52px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#493224;color:#f8f4ea;outline:1px solid #493224;outline-offset:3px;text-decoration:none">
+<span style="font-size:13.5px;line-height:1.5">បើកផែនទី</span><span style="font-family:Esteban;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:#e2c4a5">Open in Google Maps</span></a></div>
+<div aria-hidden="true" style="margin:16px auto 18px;width:150px;display:flex;align-items:center;gap:10px"><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span><span style="width:5px;height:5px;transform:rotate(45deg);border:1px solid rgba(73,38,24,.6)"></span><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span></div>
+<p style="margin:0;font-size:13px;line-height:1.6">ម៉ោងកម្មវិធី</p><p style="margin:0;font-family:Esteban;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:#4a3325">Times</p>
+<div style="width:100%;margin-top:12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px;font-size:12.5px;line-height:1.7">
+<div><p style="margin:0">ពិធីពេលព្រឹក</p><p style="margin:0;font-family:Bokor;font-size:18px">០៦:៣០</p><p style="margin:0;font-family:Esteban;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#4a3325">Morning ceremonies</p></div>
+<div><p style="margin:0">ពិធីជប់លៀង</p><p style="margin:0;font-family:Bokor;font-size:18px">០៥:០០ ល្ងាច</p><p style="margin:0;font-family:Esteban;font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:#4a3325">Evening reception</p></div></div>
+<p style="margin:10px 0 0;font-size:11.5px;line-height:1.7;color:#4a3325">ពិធីទាំងអស់ប្រារព្ធនៅទីតាំងតែមួយ · All at the same venue</p>
+<div aria-hidden="true" style="margin:16px auto 18px;width:150px;display:flex;align-items:center;gap:10px"><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span><span style="width:5px;height:5px;transform:rotate(45deg);border:1px solid rgba(73,38,24,.6)"></span><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span></div>
+<p style="margin:0;font-size:13px;line-height:1.6">ទំនាក់ទំនង</p><p style="margin:0;font-family:Esteban;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:#4a3325">Contact</p>
+<div style="width:100%;margin-top:12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:12px"><a href="tel:+85570451315" style="width:100%;min-height:52px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;border-top:1px solid rgba(73,38,24,.45);border-bottom:1px solid rgba(73,38,24,.45);color:#492618;text-decoration:none">
+<span style="font-family:Esteban;font-size:14.5px;letter-spacing:.06em;line-height:1.5">070 451 315</span><span style="font-family:Esteban;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:#4a3325">Call</span></a><a href="tel:+855965127152" style="width:100%;min-height:52px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;border-top:1px solid rgba(73,38,24,.45);border-bottom:1px solid rgba(73,38,24,.45);color:#492618;text-decoration:none">
+<span style="font-family:Esteban;font-size:14.5px;letter-spacing:.06em;line-height:1.5">096 512 7152</span><span style="font-family:Esteban;font-size:9px;letter-spacing:.26em;text-transform:uppercase;color:#4a3325">Call</span></a></div>
+<p style="margin:22px 0 0;font-family:Bokor;font-size:15px;line-height:1.6">សូមអរគុណ</p>
+</div></div>
+<img loading="lazy" decoding="async" src="a/seal.webp" alt="" style="position:absolute;left:50%;bottom:-42px;width:88px;height:88px;margin-left:-44px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35))"></article></div></section>
+<section id="album" class="sec"><div style="width:390px;box-sizing:border-box;padding:40px 16px 60px"><div style="box-sizing:border-box;padding:32px 24px 36px;background:#f8f4ea url(a/paper.jpg) repeat;background-size:256px 256px;color:#492618;box-shadow:0 22px 40px rgba(0,0,0,.42),0 2px 5px rgba(0,0,0,.25)">
+  <div style="display:grid;grid-template-columns:180px 118px;column-gap:12px">
+    <div style="display:flex;flex-direction:column">
+      <div style="height:116px;display:flex;flex-direction:column;justify-content:center">
+        <p style="margin:0;font-family:'Pinyon Script';font-size:36px;line-height:1;color:#4a3325">Our love story</p>
+      </div>
+      <img loading="lazy" decoding="async" class="ph" src="a/album-1.jpg" alt="Tey holding Panha's cheeks" style="width:180px;height:270px;object-position:50% 30%">
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <img loading="lazy" decoding="async" class="ph" src="a/album-2.jpg" alt="Panha holding Tey's sash" style="width:118px;height:187px;object-position:50% 40%">
+      <img loading="lazy" decoding="async" class="ph" src="a/album-3.jpg" alt="Tey holding a bouquet" style="width:118px;height:187px;object-position:50% 40%">
+    </div>
+  </div>
+  <p style="margin:24px 6px 0;text-align:center;font-family:Esteban;font-size:13.5px;line-height:1.65">It only takes a second to say I love you, but it will take a lifetime to show you how much</p>
+  <div aria-hidden="true" style="margin:20px auto;width:150px;display:flex;align-items:center;gap:10px"><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span><span style="width:5px;height:5px;transform:rotate(45deg);border:1px solid rgba(73,38,24,.6)"></span><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span></div>
+  <img loading="lazy" decoding="async" class="ph" src="a/album-4.jpg" alt="Panha seated, Tey beside him in a white gown" style="width:310px;height:420px;object-position:50% 25%">
+  <p style="margin:18px 0 0;text-align:center;font-family:'Pinyon Script';font-size:26px;color:#4a3325">Panha &amp; Tey</p>
+</div></div></section>
+<section id="dress" class="sec"><div style="width:390px;box-sizing:border-box;padding:40px 24px 60px;font-family:Battambang,serif;color:#492618"><article class="tx-cream" style="position:relative;box-sizing:border-box;padding:12px;box-shadow:0 22px 40px rgba(0,0,0,.42),0 2px 5px rgba(0,0,0,.25)">
+<div style="box-sizing:border-box;padding:3px;border:1px solid rgba(73,38,24,.55)"><div style="box-sizing:border-box;padding:28px 14px 30px;border:1px solid rgba(73,38,24,.28);display:flex;flex-direction:column;align-items:center;text-align:center">
+<img loading="lazy" decoding="async" src="a/mono-cocoa.webp" alt="" style="width:50px;height:auto">
+<h1 style="margin:10px 0 0;font-family:Bokor;font-weight:400;font-size:21px;line-height:1.6">ពណ៌សម្លៀកបំពាក់</h1>
+<p style="margin:2px 0 0;font-family:Esteban;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#4a3325">Dress code</p>
+<p style="margin:12px 4px 0;font-size:12.5px;line-height:1.85">យើងខ្ញុំសូមគោរពអញ្ជើញភ្ញៀវកិត្តិយស ស្លៀកពាក់ពណ៌ត្នោត ក្រហមចាស់ មាស ផ្កាឈូកស្រាល ឬបៃតងអូលីវ</p>
+<p style="margin:6px 4px 0;font-family:Esteban;font-size:12.5px;line-height:1.55;color:#4a3325">We kindly invite our guests to wear brown, burgundy, gold, dusty rose or olive.</p>
+<div style="margin-top:16px;display:flex;justify-content:center;gap:10px"><span style="width:26px;height:26px;border-radius:13px;background:#3B2214;box-shadow:inset 0 0 0 1px rgba(73,38,24,.2),0 3px 6px rgba(73,38,24,.2)"></span><span style="width:26px;height:26px;border-radius:13px;background:#7E5C45;box-shadow:inset 0 0 0 1px rgba(73,38,24,.2),0 3px 6px rgba(73,38,24,.2)"></span><span style="width:26px;height:26px;border-radius:13px;background:#D0A559;box-shadow:inset 0 0 0 1px rgba(73,38,24,.2),0 3px 6px rgba(73,38,24,.2)"></span><span style="width:26px;height:26px;border-radius:13px;background:#CEA28F;box-shadow:inset 0 0 0 1px rgba(73,38,24,.2),0 3px 6px rgba(73,38,24,.2)"></span><span style="width:26px;height:26px;border-radius:13px;background:#801D2D;box-shadow:inset 0 0 0 1px rgba(73,38,24,.2),0 3px 6px rgba(73,38,24,.2)"></span><span style="width:26px;height:26px;border-radius:13px;background:#70792C;box-shadow:inset 0 0 0 1px rgba(73,38,24,.2),0 3px 6px rgba(73,38,24,.2)"></span></div>
+<div aria-hidden="true" style="margin:16px auto 18px;width:150px;display:flex;align-items:center;gap:10px"><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span><span style="width:5px;height:5px;transform:rotate(45deg);border:1px solid rgba(73,38,24,.6)"></span><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span></div>
+<p style="margin:0;font-family:'Pinyon Script';font-size:28px;line-height:1.2;color:#4a3325">For Ladies</p>
+<img loading="lazy" decoding="async" src="a/ladies.webp" alt="Four gowns in chocolate, gold, dusty rose and olive" style="margin-top:8px;width:100%;height:auto;display:block">
+<p style="margin:10px 4px 0;font-size:12px;line-height:1.8">រ៉ូបវែង ឬសម្លៀកបំពាក់ផ្លូវការ ក្នុងពណ៌ខាងលើ</p>
+<p style="margin:2px 4px 0;font-family:Esteban;font-size:12px;line-height:1.5;color:#4a3325">Long gowns or formal dresses in the palette.</p>
+<div aria-hidden="true" style="margin:16px auto 18px;width:150px;display:flex;align-items:center;gap:10px"><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span><span style="width:5px;height:5px;transform:rotate(45deg);border:1px solid rgba(73,38,24,.6)"></span><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span></div>
+<p style="margin:0;font-family:'Pinyon Script';font-size:28px;line-height:1.2;color:#4a3325">For Gentlemen</p>
+<img loading="lazy" decoding="async" src="a/gents.webp" alt="Four suits in chocolate, mocha, burgundy and olive" style="margin-top:8px;width:92%;height:auto;display:block">
+<p style="margin:10px 4px 0;font-size:12px;line-height:1.8">អាវធំ ឬអាវក្រៅ ជាមួយខោ និងស្បែកជើងផ្លូវការ</p>
+<p style="margin:2px 4px 0;font-family:Esteban;font-size:12px;line-height:1.5;color:#4a3325">Suits or blazers with formal trousers and shoes.</p>
+<div aria-hidden="true" style="margin:16px auto 18px;width:150px;display:flex;align-items:center;gap:10px"><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span><span style="width:5px;height:5px;transform:rotate(45deg);border:1px solid rgba(73,38,24,.6)"></span><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span></div>
+<p style="margin:0;font-size:12.5px;line-height:1.7">សូមជៀសវាងពណ៌ស និងពណ៌ក្រែម</p>
+<p style="margin:0;font-family:Esteban;font-size:9.5px;letter-spacing:.26em;text-transform:uppercase;color:#4a3325">Please avoid white &amp; ivory</p>
+</div></div></article></div></section>
+<section id="rsvp" class="sec"><div style="width:390px;box-sizing:border-box;padding:40px 24px 80px;font-family:Battambang,serif;color:#492618"><article class="tx-cream" style="position:relative;box-sizing:border-box;padding:12px;box-shadow:0 22px 40px rgba(0,0,0,.42),0 2px 5px rgba(0,0,0,.25)">
+<div style="box-sizing:border-box;padding:3px;border:1px solid rgba(73,38,24,.55)"><div style="box-sizing:border-box;padding:28px 20px 50px;border:1px solid rgba(73,38,24,.28);display:flex;flex-direction:column;align-items:center;text-align:center">
+<img loading="lazy" decoding="async" src="a/mono-cocoa.webp" alt="" style="width:50px;height:auto">
+<h2 style="margin:10px 0 0;font-family:Bokor;font-weight:400;font-size:21px;line-height:1.6">សូមឆ្លើយតបការអញ្ជើញ</h2>
+<p style="margin:2px 0 0;font-family:Esteban;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:#4a3325">Kindly reply</p>
+<div aria-hidden="true" style="margin:16px auto 20px;width:150px;display:flex;align-items:center;gap:10px"><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span><span style="width:5px;height:5px;transform:rotate(45deg);border:1px solid rgba(73,38,24,.6)"></span><span style="flex:1;height:1px;background:rgba(73,38,24,.4)"></span></div>
+<form id="rsvpForm" novalidate style="width:100%">
+<label for="rName" style="display:block;margin:0 0 6px;text-align:left;font-size:12.5px;line-height:1.6">ឈ្មោះ <span style="font-family:Esteban;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#4a3325">· Name</span></label>
+<input id="rName" name="name" type="text" autocomplete="name" maxlength="120" required class="field-line" placeholder="ឈ្មោះរបស់លោកអ្នក · Your name">
+<fieldset style="border:0;margin:22px 0 0;padding:0;min-width:0">
+<legend style="padding:0;margin:0 0 6px;text-align:left;font-size:12.5px;line-height:1.6">តើលោកអ្នកអាចចូលរួមបានទេ? <span style="font-family:Esteban;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#4a3325">· Will you attend?</span></legend>
+<div style="display:flex;gap:10px">
+<button type="button" class="choice" data-attend="yes" aria-pressed="false"><span style="font-size:13.5px;line-height:1.5">ចូលរួម</span><span class="en">Joyfully accept</span></button>
+<button type="button" class="choice" data-attend="no" aria-pressed="false"><span style="font-size:13.5px;line-height:1.5">មិនអាចចូលរួម</span><span class="en">Regretfully decline</span></button>
+</div></fieldset>
+<div id="countRow" style="width:100%;margin-top:22px;display:flex;align-items:center;justify-content:space-between">
+<p id="countLbl" style="margin:0;text-align:left;font-size:12.5px;line-height:1.6">ចំនួនភ្ញៀវ <span style="font-family:Esteban;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#4a3325">· Guests</span></p>
+<div role="group" aria-labelledby="countLbl" style="display:flex;align-items:center;border:1px solid rgba(73,38,24,.45)">
+<button type="button" class="step" id="cMinus" aria-label="ដកមួយ · One fewer">−</button>
+<output id="cVal" aria-live="polite" style="width:40px;text-align:center;font-family:Bokor;font-size:20px;border-left:1px solid rgba(73,38,24,.3);border-right:1px solid rgba(73,38,24,.3);line-height:40px">២</output>
+<button type="button" class="step" id="cPlus" aria-label="បន្ថែមមួយ · One more">+</button></div></div>
+<label for="rWish" style="display:block;margin:22px 0 6px;text-align:left;font-size:12.5px;line-height:1.6">សារជូនពរ <span style="font-family:Esteban;font-size:9.5px;letter-spacing:.24em;text-transform:uppercase;color:#4a3325">· Wishes for the couple</span></label>
+<textarea id="rWish" name="wishes" maxlength="1000" rows="3" class="field-box" placeholder="សរសេរសារជូនពរ…"></textarea>
+<p id="rMsg" role="status" aria-live="polite" style="margin:14px 0 0;min-height:1px;font-size:12px;line-height:1.7"></p>
+<button type="submit" id="rSend" class="btn-dark" style="width:100%;margin-top:10px;min-height:54px;box-sizing:border-box;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#493224;color:#f8f4ea;border:0;outline:1px solid #493224;outline-offset:3px;cursor:pointer">
+<span class="lbl-km" style="font-size:14px;line-height:1.5">ផ្ញើការឆ្លើយតប</span><span class="lbl-en" style="font-family:Esteban;font-size:9px;letter-spacing:.28em;text-transform:uppercase;color:#e2c4a5">Send reply</span></button>
+</form>
+<div id="rThanks" hidden style="width:100%">
+<p style="margin:6px 0 0;font-family:'Pinyon Script';font-size:34px;line-height:1.2;color:#4a3325">Thank you</p>
+<p id="rThanksKm" style="margin:6px 0 0;font-size:13px;line-height:1.9"></p>
+<p id="rThanksEn" style="margin:4px 0 0;font-family:Esteban;font-size:12.5px;line-height:1.6;color:#4a3325"></p>
+<button type="button" id="rEdit" style="margin-top:18px;background:none;border:0;border-bottom:1px solid rgba(73,38,24,.5);padding:4px 2px;font:inherit;font-size:12px;color:#492618;cursor:pointer">កែការឆ្លើយតប · <span style="font-family:Esteban;font-size:10px;letter-spacing:.2em;text-transform:uppercase">Change my reply</span></button>
+</div>
+<p style="margin:22px 0 0;font-family:Bokor;font-size:15px;line-height:1.6">សូមអរគុណ</p>
+</div></div>
+<img loading="lazy" decoding="async" src="a/seal.webp" alt="" style="position:absolute;left:50%;bottom:-42px;width:88px;height:88px;margin-left:-44px;filter:drop-shadow(0 6px 8px rgba(0,0,0,.35))"></article></div></section>
+    </main>
+    <footer class="col">
+      <img src="a/mono-sand.webp" alt="" loading="lazy" style="width:40px;height:auto;opacity:.9">
+      <p style="margin-top:8px;font-family:'Pinyon Script';font-size:40px;line-height:1.2">Panha &amp; Tey</p>
+      <p style="margin-top:4px;font-family:Esteban;font-size:12px;letter-spacing:.34em">19 . 12 . 2026</p>
+    </footer>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+var CFG={"rsvp_url": "", "wedding_iso": "2026-12-19T17:00:00+07:00"};
+var KM='០១២៣៤៥៦៧៨៩';
+function km(n){return String(n).replace(/\d/g,function(d){return KM[d]})}
+function pad2(n){return n<10?'0'+n:''+n}
+var $=function(id){return document.getElementById(id)};
+var root=document.documentElement, body=document.body;
+var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(reduce) root.classList.add('rm');
+
+/* ---------- guest name from the personal link ---------- */
+var guest='';
+try{guest=(new URLSearchParams(location.search).get('to')||'')}catch(e){}
+guest=guest.replace(/[\u0000-\u001f​﻿]/g,'').replace(/\s+/g,' ').trim().slice(0,160);
+var nameEl=$('guestName');
+if(guest) nameEl.textContent=guest;
+function fitName(){
+  var fs=13; nameEl.style.fontSize=fs+'px';
+  var lh=parseFloat(getComputedStyle(nameEl).lineHeight)||22;
+  while(nameEl.scrollHeight>lh*2+6&&fs>9.5){fs-=.5;nameEl.style.fontSize=fs+'px';lh=parseFloat(getComputedStyle(nameEl).lineHeight)||fs*1.7}
+}
+
+/* ---------- sizing ---------- */
+var envStage=$('envStage'), heroStage=$('heroStage');
+function fit(){
+  var vw=root.clientWidth, vh=window.innerHeight;
+  var w=Math.min(vw,520);
+  root.style.setProperty('--w',w+'px');
+  root.style.setProperty('--z',Math.min(w/390,1.25).toFixed(4));
+  var hh=$('hero').clientHeight||vh;
+  var hs=Math.min(w/390,hh/844);
+  heroStage.style.transform='translate(-50%,-50%) scale('+hs+')';
+  var es=Math.max(w/390,vh/844);
+  envStage.style.transform='translate(-50%,-50%) scale('+es+')';
+}
+fit(); window.addEventListener('resize',fit);
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(fitName)}else{fitName()}
+
+/* ---------- countdown ---------- */
+var target=Date.parse(CFG.wedding_iso);
+function tick(){
+  var d=Math.max(0,target-Date.now());
+  var s=Math.floor(d/1000);
+  $('cd-d').textContent=km(pad2(Math.floor(s/86400)));
+  $('cd-h').textContent=km(pad2(Math.floor(s%86400/3600)));
+  $('cd-m').textContent=km(pad2(Math.floor(s%3600/60)));
+  $('cd-s').textContent=km(pad2(s%60));
+}
+tick(); setInterval(tick,1000);
+
+/* ---------- music ---------- */
+var bgm=$('bgm'), mBtn=$('musicBtn'), wasPlaying=false;
+function syncBtn(){var on=!bgm.paused;mBtn.classList.toggle('playing',on);mBtn.setAttribute('aria-pressed',on?'true':'false')}
+bgm.addEventListener('play',syncBtn); bgm.addEventListener('pause',syncBtn);
+bgm.volume=0.85;
+function playMusic(){var p=bgm.play(); if(p&&p.catch)p.catch(function(){syncBtn()})}
+mBtn.addEventListener('click',function(e){e.stopPropagation(); if(bgm.paused)playMusic(); else bgm.pause()});
+document.addEventListener('visibilitychange',function(){
+  if(document.hidden){wasPlaying=!bgm.paused; bgm.pause()}
+  else if(wasPlaying){playMusic()}
+});
+
+/* ---------- fabric veil video ---------- */
+var fab=$('fabricVid');
+function startFabric(){ if(reduce) return; var p=fab.play(); if(p&&p.catch)p.catch(function(){}) }
+
+/* ---------- envelope ---------- */
+var env=$('env'), opened=false;
+function openEnv(){
+  if(opened) return; opened=true;
+  playMusic(); startFabric();
+  env.classList.add('opening');
+  setTimeout(function(){body.classList.add('open')}, reduce?0:250);
+  setTimeout(function(){
+    body.classList.remove('locked'); root.classList.remove('locked');
+    env.classList.add('done'); env.setAttribute('aria-hidden','true');
+    mBtn.focus({preventScroll:true});
+  }, reduce?400:2700);
+}
+env.addEventListener('click',openEnv);
+env.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openEnv()}});
+window.scrollTo(0,0);
+$('scrollHint').addEventListener('click',function(){document.getElementById('invitation').scrollIntoView({behavior:reduce?'auto':'smooth'})});
+
+/* ---------- floral background ---------- */
+var fv=$('floralVid'), floralStarted=false, LOOP_AT=5.5;
+fv.addEventListener('ended',function(){fv.currentTime=LOOP_AT; var p=fv.play(); if(p&&p.catch)p.catch(function(){})});
+function startFloral(){
+  if(floralStarted||reduce) return; floralStarted=true;
+  fv.preload='auto'; var p=fv.play(); if(p&&p.catch)p.catch(function(){floralStarted=false});
+}
+
+/* ---------- reveal on scroll ---------- */
+var secs=[].slice.call(document.querySelectorAll('.sec'));
+var tls=[].slice.call(document.querySelectorAll('.timeline'));
+tls.forEach(function(tl){
+  var H=tl.offsetHeight||1;
+  [].slice.call(tl.children).forEach(function(c){
+    if(c.tagName.toLowerCase()==='svg') return;
+    var top=parseFloat(c.style.top)||0;
+    c.style.transitionDelay=(Math.max(0,top-30)/H*5).toFixed(2)+'s';
+  });
+  if(!reduce) tl.classList.add('armed');
+});
+if('IntersectionObserver' in window){
+  var io=new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      e.target.classList.add('in');
+      if(e.target.id==='invitation') startFloral();
+      var tl=e.target.querySelector('.timeline'); if(tl) setTimeout(function(){tl.classList.add('go')},500);
+      io.unobserve(e.target);
+    });
+  },{rootMargin:'0px 0px -12% 0px',threshold:0.04});
+  secs.forEach(function(s){io.observe(s)});
+}else{secs.forEach(function(s){s.classList.add('in')});tls.forEach(function(t){t.classList.add('go')});startFloral()}
+
+/* ---------- RSVP ---------- */
+var form=$('rsvpForm'), rName=$('rName'), rWish=$('rWish'), rMsg=$('rMsg'), rSend=$('rSend');
+var countRow=$('countRow'), cVal=$('cVal'), cMinus=$('cMinus'), cPlus=$('cPlus');
+var attend=null, count=/និង|&|\band\b/i.test(guest)?2:1, MAXC=10;
+var storeKey='pt-rsvp:'+(guest||'-');
+rName.value=guest;
+function drawCount(){cVal.textContent=km(count);cMinus.disabled=count<=1;cPlus.disabled=count>=MAXC}
+drawCount();
+cMinus.addEventListener('click',function(){if(count>1){count--;drawCount()}});
+cPlus.addEventListener('click',function(){if(count<MAXC){count++;drawCount()}});
+[].slice.call(document.querySelectorAll('.choice')).forEach(function(b){
+  b.addEventListener('click',function(){
+    attend=b.getAttribute('data-attend');
+    [].slice.call(document.querySelectorAll('.choice')).forEach(function(o){o.setAttribute('aria-pressed',o===b?'true':'false')});
+    countRow.hidden=(attend==='no'); setMsg('');
+  });
+});
+function setMsg(t,isErr){rMsg.innerHTML=t;rMsg.className=isErr?'err':''}
+function thanks(rec){
+  form.hidden=true; $('rThanks').hidden=false;
+  if(rec.attending==='Yes'){
+    $('rThanksKm').textContent='យើងខ្ញុំរង់ចាំជួបលោកអ្នក ('+km(rec.guests)+' នាក់) នៅថ្ងៃសៅរ៍ ទី១៩ ខែធ្នូ ឆ្នាំ២០២៦';
+    $('rThanksEn').textContent='We look forward to celebrating with you on 19 December.';
+  }else{
+    $('rThanksKm').textContent='សូមអរគុណចំពោះការឆ្លើយតប និងសារជូនពររបស់លោកអ្នក';
+    $('rThanksEn').textContent='Thank you for letting us know. You will be missed.';
+  }
+}
+$('rEdit').addEventListener('click',function(){$('rThanks').hidden=true;form.hidden=false;rName.focus()});
+try{var saved=JSON.parse(localStorage.getItem(storeKey)||'null'); if(saved&&saved.attending){thanks(saved)}}catch(e){}
+function uid(){try{return crypto.randomUUID()}catch(e){return Date.now().toString(36)+Math.random().toString(36).slice(2,10)}}
+form.addEventListener('submit',function(e){
+  e.preventDefault();
+  var name=rName.value.replace(/\s+/g,' ').trim();
+  if(!name){setMsg('សូមបញ្ចូលឈ្មោះ · <span style="font-family:Esteban">Please enter your name</span>',true);rName.focus();return}
+  if(!attend){setMsg('សូមជ្រើសរើស ចូលរួម ឬ មិនអាចចូលរួម · <span style="font-family:Esteban">Please choose whether you can attend</span>',true);return}
+  if(!CFG.rsvp_url){setMsg('ការឆ្លើយតបមិនទាន់ដំណើរការនៅឡើយ · <span style="font-family:Esteban">Replies are not switched on yet. Please contact the couple.</span>',true);return}
+  var rec={id:uid(),name:name,link_name:guest,attending:attend==='yes'?'Yes':'No',guests:attend==='yes'?count:0,wishes:rWish.value.trim().slice(0,1000),sent_at:new Date().toISOString()};
+  rSend.disabled=true; rSend.querySelector('.lbl-km').textContent='កំពុងផ្ញើ…'; rSend.querySelector('.lbl-en').textContent='Sending…'; setMsg('');
+  var body=JSON.stringify(rec);
+  function ok(){try{localStorage.setItem(storeKey,JSON.stringify(rec))}catch(e){} thanks(rec); reset()}
+  function fail(){setMsg('ផ្ញើមិនបានទេ សូមព្យាយាមម្តងទៀត · <span style="font-family:Esteban">Could not send. Please check your connection and try again.</span>',true); reset()}
+  function reset(){rSend.disabled=false; rSend.querySelector('.lbl-km').textContent='ផ្ញើការឆ្លើយតប'; rSend.querySelector('.lbl-en').textContent='Send reply'}
+  fetch(CFG.rsvp_url,{method:'POST',body:body}).then(function(r){return r.json()}).then(function(j){if(j&&j.ok)ok();else fail()})
+  .catch(function(){
+    /* Some browsers block reading the reply; send again without reading it (the sheet ignores duplicates by id). */
+    fetch(CFG.rsvp_url,{method:'POST',mode:'no-cors',body:body}).then(ok).catch(fail);
+  });
+});
+})();
+</script>
+</body>
+</html>
